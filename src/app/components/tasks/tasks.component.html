@@ -1,0 +1,31 @@
+@if (isAddingTask) {
+  <app-new-task></app-new-task>
+}
+
+<section class="bg-my-purple-500 p-4 rounded-md">
+  <header class="flex flex-row justify-between text-xl text-my-grey font-bold">
+    <span class="tracking-widest">{{ name }}'s Tasks</span>
+    <menu class="group">
+      <button
+        (click)="onStartAddTask()"
+        class="bg-my-purple-400 px-6 py-2 group-hover:bg-my-purple-450 group-active:bg-my-purple-450 text-base font-medium text-black rounded-md cursor-pointer"
+      >
+        Add Task
+      </button>
+    </menu>
+  </header>
+  <main>
+    <ul
+      class="flex flex-col gap-y-6 max-h-[calc(50vh)] overflow-auto scrollbar-hide"
+    >
+      @for (task of selectedUserTasks; track task.id) {
+        <li>
+          <app-task
+            [task]="task"
+            (selectId)="onCompleteTask($event)"
+          ></app-task>
+        </li>
+      }
+    </ul>
+  </main>
+</section>

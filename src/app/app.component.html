@@ -1,4 +1,27 @@
 <app-header></app-header>
-<main class="w-3/4 mx-auto mt-9">
-  <div class="w-[200px]"><app-user></app-user></div>
+<main class="w-3/4 mx-auto mt-9 flex flex-row flex-wrap justify-start gap-x-9">
+  <div class="w-[200px]">
+    <ul class="flex flex-col gap-y-4">
+      @for (user of users; track user.id) {
+        <li>
+          <app-user
+            [selected]="user.id === selectedUserId"
+            [user]="user"
+            (select)="onSelectUser($event)"
+          ></app-user>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="grow">
+    @if (selectedUser) {
+      <app-tasks
+        [userId]="selectedUser.id"
+        [name]="selectedUser.name"
+      ></app-tasks>
+    } @else {
+      <h2 class="text-xl text-my-grey">Select a user to see their tasks</h2>
+    }
+  </div>
 </main>

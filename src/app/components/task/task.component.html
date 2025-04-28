@@ -1,0 +1,13 @@
+<article class="mt-2 p-4 flex flex-col items-start bg-[#bf9ee5] text-[#25113d]">
+  <h2 class="text-xl font-bold">{{ task?.title }}</h2>
+  <time class="text-[#3c2c50] text-sm">{{ task?.dueDate }}</time>
+  <p class="mt-2">{{ task?.summary }}</p>
+  <p class="self-end group">
+    <button
+      (click)="onCompleteTask()"
+      class="text-[#decdf2] bg-[#380774] px-6 py-2 cursor-pointer group-hover:bg-[#4a0774] group-active:bg-[#4a0774] rounded-sm transition-all ease-in duration-100"
+    >
+      Complete
+    </button>
+  </p>
+</article>

@@ -1,4 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --color-my-purple-400: #9965dd;
+  --color-my-purple-500: #433352;
+  --color-my-purple-450: #a565dd;
+  --color-my-black: #150722;
+  --color-my-grey: #c3b3d8;
+}
+
 body {
   background: radial-gradient(circle at top left, #181023, #0b0519);
+  min-height: calc(100vh);
 }

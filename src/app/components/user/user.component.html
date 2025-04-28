@@ -1,15 +1,12 @@
 <div
-  class="flex flex-col items-start justify-center h-12 p-2 bg-[#433352] hover:bg-[#9965dd] active:bg-[#9965dd] rounded-md text-[#c3b3d8] hover:text-[#150722] active:text-[#150722] cursor-pointer"
+  class="flex flex-col items-start justify-center h-12 p-2 bg-my-purple-500 hover:bg-my-purple-450 active:bg-my-purple-450 rounded-md text-my-grey hover:text-my-black active:text-my-black cursor-pointer"
+  [ngClass]="{ 'bg-my-purple-400 text-my-black': selected }"
 >
   <button
     class="flex justify-start items-center gap-x-2 cursor-pointer"
     (click)="onSelectUser()"
   >
-    <img
-      class="h-9 w-9 rounded-full"
-      [src]="imagePath"
-      [alt]="selectedUser.name"
-    />
-    <span class="text-sm">{{ selectedUser.name }}</span>
+    <img class="h-9 w-9 rounded-full" [src]="imagePath" [alt]="user?.name" />
+    <span class="text-sm">{{ user?.name }}</span>
   </button>
 </div>

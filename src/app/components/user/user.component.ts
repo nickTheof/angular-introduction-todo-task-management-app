@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
-import { DUMMY_USERS } from '../../DUMMY_USERS';
-
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../../shared/interfaces/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  selectedUser = DUMMY_USERS[randomIndex];
+  @Input({ required: true }) user: User | undefined;
+  @Input({ required: true }) selected: boolean | undefined;
+  @Output() select = new EventEmitter<string>();
 
   get imagePath() {
-    return 'assets/users/' + this.selectedUser.avatar;
+    return 'assets/users/' + this.user?.avatar;
   }
 
   onSelectUser() {
-    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-    this.selectedUser = DUMMY_USERS[randomIndex];
+    this.select.emit(this.user?.id);
   }
 }
