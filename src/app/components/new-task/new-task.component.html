@@ -1,11 +1,13 @@
-<div class="bg-black/90 fixed top-0 left-0 w-full h-[calc(100vh)]"></div>
+<div
+  class="bg-black/90 fixed top-0 left-0 w-full h-[calc(100vh)]"
+  (click)="onCancel()"
+></div>
 <dialog
   class="w-9/10 max-w-[500px] bg-my-purple-500 rounded-md shadow-md overflow-hidden p-4 top-20 mx-auto"
   open
-  (click)="onCancel()"
 >
   <h2 class="text-my-grey text-xl font-bold mb-2">Add Task</h2>
-  <form class="flex flex-col items-start gap-y-3">
+  <form class="flex flex-col items-start gap-y-3" (ngSubmit)="onSubmit()">
     <div class="w-full flex flex-col items-start gap-y-2">
       <label class="text-my-grey text-sm" for="title">Title</label>
       <input
@@ -13,6 +15,7 @@
         type="text"
         id="title"
         name="title"
+        [(ngModel)]="enteredTitle"
       />
     </div>
 
@@ -23,6 +26,7 @@
         id="summary"
         rows="5"
         name="summary"
+        [(ngModel)]="enteredSummary"
       ></textarea>
     </div>
 
@@ -33,6 +37,7 @@
         type="date"
         id="due-date"
         name="due-date"
+        [(ngModel)]="enteredDate"
       />
     </div>
 
