@@ -1,5 +1,5 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Task } from 'src/app/shared/interfaces/task';
+import { Component, inject, Input } from '@angular/core';
+import { Task } from '../../shared/interfaces/task';
 import { DatePipe } from '@angular/common';
 import { TasksService } from '../../services/tasks.service';
 
